@@ -11,6 +11,25 @@
 		$('#admin').addClass('active');
 	}
 
+	$('.removeUser').click(function() {
+
+		var that = $(this);
+		var id = that.attr('_id');
+
+		$.ajax({
+			url: '/users/' + id,
+			type: 'DELETE',
+			success: function(result) {
+				if (result == 'success') {
+					that.parent().parent().parent().remove();
+				} else {
+					alert('删除失败');
+				}
+			}
+		});
+
+	});
+
 	$('.removeCategory').click(function() {
 	
 		var that = $(this);

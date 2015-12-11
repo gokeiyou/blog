@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	div.row
+		div.panel.panel-primary
+			div.panel-heading
+				strong 账号编辑
+			div.panel-body
+				div.col-lg-3
+					form(action='/users/#{user ? user._id:0}' method='post')#form
+						section.panel
+							div.input-group
+								span.input-group-addon 用户名
+								input(type='text' name='user_name' value='#{user?user.user_name:""}').form-control
+						section.panel
+							div.input-group
+								span.input-group-addon 密码
+								input(type='password' name='password' value='#{user?user.password}').form-control
+						section.panel
+							input(type='submit' value='保存').btn.btn-primary

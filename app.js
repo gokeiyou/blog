@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var blogs = require('./routes/blogs');
+var users = require('./routes/users');
 var categories = require('./routes/categories');
 var admin = require('./routes/admin');
 
@@ -39,13 +40,17 @@ app.delete('/blogs/:id', blogs.remove);
 app.get('/blogs/:id/content', blogs.findBlogContentById);
 
 // sticky
-
 app.get('/admin', admin.admin);
 app.get('/admin/categories', admin.categories);
 app.get('/admin/blogs', admin.blogs);
+app.get('/admin/users', admin.users);
 app.get('/admin/categories/:id/edit', categories.edit);
 app.get('/admin/blogs/:id/edit', blogs.edit);
+app.get('/admin/users/:id/edit', users.edit);
 app.post('/admin/blogs/:id/sticky', blogs.sticky);
+
+app.delete('/users/:id', users.remove);
+app.post('/users/:id', users.save);
 
 
 

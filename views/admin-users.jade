@@ -1,0 +1,29 @@
+extends layout
+
+block content
+    div.row
+        div.panel.panel-primary
+            div.panel-heading
+                strong 账号管理
+                a(href='/admin/users/0/edit' style='margin-left:10px').btn.btn-success.btn-shadow.btn-sm#addCategory 添加
+            div.panel-body
+                table.table
+                    tr
+                        th #
+                        th 用户名
+                        th 密码
+                        th 创建时间
+                        th 操作
+                    -for(var i = 0; i < users.length; i++)
+                        -var user = users[i];
+                        -var time = user.create_time;
+                        tr
+                            td #{i}
+                            td #{user.user_name.slice(0, 30)}
+                            td #{user.password}
+                            td #{time.getFullYear()}-#{time.getMonth() + 1}-#{time.getDate()}&nbsp;&nbsp;#{time.getHours() >= 10 ? time.getHours() : ('0' + time.getHours())}:#{time.getMinutes() >= 10 ? time.getMinutes() : ('0' + time.getMinutes())}
+                            td
+                                div.btn-group
+                                    a(_id='#{user._id}').btn.btn-primary.btn-shadow.btn-sm.removeUser 删除
+                                    a(href='/admin/users/#{user._id}/edit').btn.btn-success.btn-shadow.btn-sm 编辑
+
