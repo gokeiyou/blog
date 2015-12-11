@@ -4,7 +4,8 @@ body {
     font-size:15px;
 	padding-top: 70px;
 	padding-bottom: 40px;
-	background-image: url('/images/background.png')
+	background-image: url('/images/background.png');
+	height: 100%;
 }
 
 .about p {
@@ -76,4 +77,17 @@ body {
 
 .author a, .shate-view a , .title a {
     color: #428bca;
+}
+
+footer p {
+	font-size: 14px;
+	color: #aaa;
+	display: block;
+	float: left;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	text-indent: 35px;
+	line-height: 35px;
 }

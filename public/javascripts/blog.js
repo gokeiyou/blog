@@ -13,6 +13,9 @@
 
 	$('.removeUser').click(function() {
 
+		if (!confirm('确定删除该用户？'))
+			return false;
+
 		var that = $(this);
 		var id = that.attr('_id');
 
